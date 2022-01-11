@@ -38,34 +38,43 @@ with open(file_to_load,"r") as election_data:
             candidate_votes[candidate_name]=0
         #Add a vote to that candidate´s count
         candidate_votes[candidate_name]+=1
-    #Iterate through the candidate list
-    for candidate_name in candidate_options:
-        #Get the votes of that candidate
-        votes=candidate_votes[candidate_name]
-        #Calculate the % of that candidate votes
-        pvotes=float(votes) / float(total_votes) * 100
-        #Print the candidates votes %
-        print(f"{candidate_name}:{round(pvotes,1)}% ({votes:,})\n")
+        #Save the results to a txt file
+    with open(file_to_save,"w") as txt_file:
+        election_results=(
+            f"\nElection Results\n"
+            f"---------------------\n"
+            f"Total Votes:{total_votes:,}\n"
+            f"---------------------\n")
+        print(election_results,end="")
+        #Save the final vote count to the txt file
+        txt_file.write(election_results)
+        #Iterate through the candidate list
+        for candidate_name in candidate_options:
+            #Get the votes of that candidate
+            votes=candidate_votes[candidate_name]
+            #Calculate the % of that candidate votes
+            pvotes=float(votes) / float(total_votes) * 100
+            #Print the candidates votes %
+            candidate_results=f"{candidate_name}:{round(pvotes,1)}% ({votes:,})\n"
+            print(candidate_results)
+            #Add the candidate results to the txt file
+            txt_file.write(candidate_results)
 
-        #Check if the candidate has the greatest ammount of votes and %
-        if (votes>winning_count) and (pvotes>winning_percentage):
-            #Set his votes as the winning votes
-            winning_count=votes
-            #Set his % as the winning %
-            winning_percentage=pvotes
-            #Set the candidate as the current winning candidate
-            winning_candidate=candidate_name
-    winning_candidate_summary=(
-        f"---------------------------\n"
-        f"Winner: {winning_candidate}\n"
-        f"Winning Vote Count: {winning_count:,}\n"
-        f"Winning Percentage: {winning_percentage:.1f}%\n"
-        f"---------------------------\n")
-    print(winning_candidate_summary)
-
-#The data we need to retrieve
-#1. The total number of votes cast
-#2. A complete list of candidate wo received votes
-#3. The percentage of votes each candidate won
-#4. The ammount of votes each candidate won
-#5. The winner of the election based on popular vote
+            #Check if the candidate has the greatest ammount of votes and %
+            if (votes>winning_count) and (pvotes>winning_percentage):
+                #Set his votes as the winning votes
+                winning_count=votes
+                #Set his % as the winning %
+                winning_percentage=pvotes
+                #Set the candidate as the current winning candidate
+                winning_candidate=candidate_name
+        winning_candidate_summary=(
+            f"---------------------------\n"
+            f"Winner: {winning_candidate}\n"
+            f"Winning Vote Count: {winning_count:,}\n"
+            f"Winning Percentage: {winning_percentage:.1f}%\n"
+            f"---------------------------\n")
+        #Print the winning message
+        print(winning_candidate_summary)
+        #Add the winning message to the txt_file
+        txt_file.write(winning_candidate_summary)
