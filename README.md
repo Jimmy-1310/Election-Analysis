@@ -12,58 +12,58 @@ For this project, the skills that were developed and used weere opening and read
 
 Each row in the .csv was an individual vote. The method to get the total ammount was to get the total ammount of rows. The problem was is that we need to skip the first row because it is the header row, so it does not contain a vote.  The code that calculates this loops through all the rows and each time it loops, it adds 1 to a variable that holds the total ammount of votes. The code that does this is:
 
-![Total_votes_ss](Code Screenshots/Total_votes_ss.png "Total Votes Code")
+![Total_votes_ss](https://user-images.githubusercontent.com/95836718/149398267-ba11d66c-c8ef-4eb9-997e-0dd8efc15814.png)
 
 **Comments**: The total_votes variable was created before with *total_votes=0*. the *reader* variable contains the piece of code *reader=csv.reader(election_data)* which reads the csv file.
 
 The results were:
 
-![Total_votes_results](Code Screenshots/Total_votes_results.png "Total Votes")
+![Total_votes_results](https://user-images.githubusercontent.com/95836718/149398342-b0a8107b-59d0-461f-9084-eacc63f69bbf.png)
 
 ### County Statistics 
 
 To calculate the total ammount of votes each county casted can be calculated by adding some lines of code to the previous *for-loop*. Each time we iterate through a row, we can take out the county where it was casted with *county_name=row[1]* (Because the county is the second element in the row, we get this value out by specifing the index inside the brackets) After this we need to check if we have already registered the county in our county list, if not we need to add it to the list. After this we can add the value to a key in a dictionarie that increments by 1. Once we had this information, to calculate the percentage of votes the code devides this number by the total ammount of votes and multiplies it by 100. The code that does this is: 
 
-![County_stats_ss](Code Screenshots/County_stats_ss.png "County Stats Code") 
+ ![County_stats_ss](https://user-images.githubusercontent.com/95836718/149398398-534a81dc-c6a6-4f21-99d7-330fd5d0e2f0.png)
 
 **Comments**: *county_options* is a list that was created to autommaticaly identify the counties that were present, instead of adding them by hand. *County_votes* is a dictionary in which the key is the county name and the value was the ammount each county casted. *County_name* was the variable that contained the name of the county by the line of code: *County_name=row[1]* 
 
 The results were:
 
-![County_stats_results](Code Screenshots/County_stats_results.png "Votes per County")
+![County_stats_results](https://user-images.githubusercontent.com/95836718/149398438-fcec6b16-6065-40dd-84f8-529d894842fb.png)
 
 ### County with largest ammount of votes
 
 To calculate this I needed to create an *if-statement* that compared each ammount of votes and determined the largest. The if-statement was:
 
-![Largest_county_ss](Code Screenshots/Largest_county_ss.png "Most Votes in County Code")
+![Largest_county_ss](https://user-images.githubusercontent.com/95836718/149398501-5e2797d5-20b2-486d-87c1-b4e93fc16ca2.png)
 
 **Comments** At first, the variables *larges_count* and *largest_percentage* were created to hold 0. The variable *largest_county* was created as an empty string with =""
 
 The county with the largest turnout was:
 
-![Largest_county_results](Code Screenshots/Largest_county_results.png "County with most Votes")
+![Largest_county_results](https://user-images.githubusercontent.com/95836718/149398532-5d6cea98-feee-47d5-a397-34905f884b56.png)
 
 ### Candidate Statistics
 
 The logic behind getting the ammount of votes of each candidate is pretty much the same as getting the ammount for the counties. So what I did was to copy the structure of that piece code, and changed the variables in order to match candidate names.
 
-![Candidate_statistics_ss](Code Screenshots/Candidate_statistics_ss.png "Candidate Statistics Code")
+![Candidate_statistics_ss](https://user-images.githubusercontent.com/95836718/149398598-9c07e5ce-a195-49d0-977b-e69b49c2479a.png)
 
 **Comments**: The candidates name for which that vote was casted for, is the 3rd value in each row with index 3. To get this value I used *candidate_name=row[2]*
 
 The results for each candidate votes and percentage was:
 
-![Candidate_statistics_results](Code Screenshots/Candidate_statistics_results.png "Votes per Candidate")
+![County_stats_results](https://user-images.githubusercontent.com/95836718/149398631-faa36318-c7fd-4de7-997a-71d64023f1ff.png)
 
 ### Election winner
 
 For getting the election winner, the same structure for getting the county with the most ammount of vote cast was applied. The main difference with this is that now the code also writes the percentage and total votes they had to win the election.
 
-![Winner_ss](Code Screenshots/Winner_ss.png "Winning code")
+![Winner_ss](https://user-images.githubusercontent.com/95836718/149398659-bdc37733-132b-4a4e-8f2e-21e4442ddfaa.png)
 
 The winner of the election and her stats was:
 
-![Winner_results](Code Screenshots/Winner_results.png "Election winner")
+![Winner_results](https://user-images.githubusercontent.com/95836718/149398684-2db711f3-116b-4a33-a80a-f1f9906fa912.png)
 
 
