@@ -54,7 +54,7 @@ The logic behind getting the ammount of votes of each candidate is pretty much t
 
 The results for each candidate votes and percentage was:
 
-![County_stats_results](https://user-images.githubusercontent.com/95836718/149398631-faa36318-c7fd-4de7-997a-71d64023f1ff.png)
+![Candidate_statistics_results](https://user-images.githubusercontent.com/95836718/149416513-909dd032-55c8-4656-b10a-8a64a5c5b231.png)
 
 ### Election winner
 
