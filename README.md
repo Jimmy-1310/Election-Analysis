@@ -18,7 +18,7 @@ Each row in the .csv was an individual vote. The method to get the total ammount
 
 The results were:
 
-![Total_votes_results](/Code Screenshots/Total_votes_results.png)
+![Total_votes_results](Election-Analysis/Code Screenshots/Total_votes_results.png)
 
 ### County Statistics 
 
